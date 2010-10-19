@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JSONP-Fu</title>
+	
+	<script type="text/javascript" src="jsonp-fu/jsonp-fu.js"></script>
+	<script type="text/javascript">
+		jfu.set_path('/jsonpfu/jsonp-fu/');
+		jfu.load('twitpic', {});
+		
+		jfu.ready('twitpic', function () {
+			jfu.lib('twitpic').users.show({username: 'meltingice'}, function (user) {
+				console.log(user);
+			});
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
