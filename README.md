@@ -51,7 +51,7 @@ Which means you will be able to do:
 
 <pre>
 jsonpfu.ready('my_api', function () {
-	jsonpfu.lib('my_api').do();
+	this.do();
 });
 </pre>
 
