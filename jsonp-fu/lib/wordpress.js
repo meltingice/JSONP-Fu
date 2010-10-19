@@ -13,8 +13,8 @@
  *	jfu.lib('wordpress').api_category.api_method(opts, callback);
  *
  * Example:
- *	jfu.lib('twitpic').users.show({username: 'meltingice'}, function (user) {
- *		console.log(user);
+ *	jfu.lib('wordpress').posts.recent({count: 3}, function (data) {
+ *		console.log(data);
  *	});
  */
  
