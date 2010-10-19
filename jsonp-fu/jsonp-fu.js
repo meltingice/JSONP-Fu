@@ -20,7 +20,8 @@ var jsonpfu = {},
 	 */
 	if (!('console' in window)) {
 		window.console = {
-			log: function () { }
+			log: function (msg) { },
+			error: function (msg) { }
 		};
 	}
 	
@@ -60,6 +61,8 @@ var jsonpfu = {},
 				if (typeof(callback) !== 'function') {
 					callback = function () {};
 				}
+				
+				log("loading url " + url);
 				
 				new_script.type = 'text/javascript';
 				new_script.src = url;
