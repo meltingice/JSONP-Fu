@@ -3,6 +3,12 @@ JSONP-Fu is a project inspired by the latest design of <a href="http://meltingic
 
 JSONP-Fu is a similar idea to oEmbed, but uses a different API and works a bit differently.  Instead of throwing a whole URL at an API endpoint, we simply call the API with our parameters and use the JSON data thats returned.
 
+Oh and by the way, JSONP-Fu passes JSLint with these options:
+
+<pre>
+/*jslint white: true, browser: true, devel: true, fragment: true, onevar: true, undef: true, nomen: true, eqeqeq: true, bitwise: true, regexp: true, newcap: true, immed: true */
+</pre>
+
 <h1>Project To-Do</h1>
 
 * Write more plugins (and finish incomplete ones)!
