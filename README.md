@@ -19,7 +19,7 @@ To add support for a new API, add a JS file to the lib directory with the API na
 
 The basic format is:
 
-```js
+<pre>
 /*
  * 'my_api' must also be the same name as the filename, minus the .js
  * The 'script' variable passed into the callback has a few nifty JSONP related
@@ -39,15 +39,15 @@ jsonpfu.extend('my_api', function (script) {
 		}
 	};
 });
-```
+</pre>
 
 Which means you will be able to do:
 
-```js
+<pre>
 jsonpfu.ready('my_api', function () {
 	jsonpfu.lib('my_api').do();
 });
-```
+</pre>
 
 Obviously this API plugin is useless and boring, but you get the idea. Check out one of the existing plugins for more comprehensive info.
 
