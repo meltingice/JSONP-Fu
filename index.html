@@ -6,16 +6,30 @@
 	<script type="text/javascript" src="jsonp-fu/jsonp-fu.js"></script>
 	<script type="text/javascript">
 		jfu.set_path('/jsonpfu/jsonp-fu/');
-		jfu.load('twitpic', {});
+		
+		jfu.load({
+			twitpic: {},
+			facebook: {
+				app_id: '123456789'
+			}
+		});
 		
 		jfu.ready('twitpic', function () {
-			jfu.lib('twitpic').users.show({username: 'meltingice'}, function (user) {
+			this.users.show({username: 'meltingice'}, function (user) {
 				console.log(user);
+			});
+		});
+		
+		jfu.ready('facebook', function () {
+			this.api('/rlefevre/feed', function (resp) {
+				console.log(resp);
 			});
 		});
 	</script>
 </head>
 <body>
+<div id="content">
 
+</div>
 </body>
 </html>

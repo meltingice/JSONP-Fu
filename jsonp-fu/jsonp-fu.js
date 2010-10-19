@@ -174,9 +174,14 @@ var jsonpfu = {},
 				lib_opts[lib] = opts;
 				
 				script.include_lib(lib, function () {
+					// Library requires manual ready state (e.g. Facebook)
+					if (!libs[lib]) {
+						return;
+					}
+					
 					if (ready_callbacks[lib]) {
 						for (i = 0; i < ready_callbacks[lib].length; i++) {
-							ready_callbacks[lib].pop()();
+							ready_callbacks[lib].pop().call(libs[lib]);
 						}
 					}
 				});
@@ -193,8 +198,18 @@ var jsonpfu = {},
 		}
 	};
 	
+	jsonpfu.manual_ready = function (lib, obj) {
+		libs[lib] = obj;
+		
+		if (ready_callbacks[lib]) {
+			for (i = 0; i < ready_callbacks[lib].length; i++) {
+				ready_callbacks[lib].pop().call(libs[lib]);
+			}
+		}
+	};
+	
 	jsonpfu.extend = function (name, lib) {
-		libs[name] = lib.call(this, script);
+		libs[name] = lib.call(this, lib_opts[name], script);
 	};
 	
 	jsonpfu.lib = function (lib) {
@@ -211,7 +226,7 @@ var jsonpfu = {},
 		}
 		
 		if (libs.hasOwnProperty(lib)) {
-			callback.call(window);
+			callback.call(libs[lib]);
 		} else {
 			if (!ready_callbacks[lib]) {
 				ready_callbacks[lib] = [];

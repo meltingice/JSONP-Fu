@@ -12,7 +12,7 @@
  *	});
  */
  
-jsonpfu.extend('twitpic', function (script) {
+jsonpfu.extend('twitpic', function (opts, script) {
 	// API helper methods for validation and querying
 	var API = {
 		validate: function (args, required) {
