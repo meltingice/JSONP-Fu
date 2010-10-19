@@ -12,7 +12,10 @@
 			facebook: {
 				app_id: '123456789'
 			},
-			github: {}
+			github: {},
+			wordpress: {
+				blog_url: 'http://blog.meltingice.net'
+			}
 		});
 		/*
 		jfu.ready('twitpic', function () {
@@ -31,6 +34,12 @@
 		jfu.ready('github', function () {
 			this.repos.watched({user: 'meltingice'}, function (user) {
 				console.log(user);
+			});
+		});
+		
+		jfu.ready('wordpress', function () {
+			this.posts.recent({count: 3}, function (data) {
+				console.log(data);
 			});
 		});
 	</script>

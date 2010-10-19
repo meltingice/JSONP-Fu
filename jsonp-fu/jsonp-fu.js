@@ -21,7 +21,8 @@ var jsonpfu = {},
 	if (!('console' in window)) {
 		window.console = {
 			log: function (msg) { },
-			error: function (msg) { }
+			error: function (msg) { },
+			info: function (msg) { }
 		};
 	}
 	
@@ -32,6 +33,14 @@ var jsonpfu = {},
 			console.log(text);
 		}
 	};
+	
+	info = function (text) {
+		if (typeof(text) === 'string') {
+			console.info('JSONP-Fu: ' + text);
+		} else {
+			console.info(text);
+		}
+	}
 	
 	error = function (text) {
 		console.error('JSONP-Fu: ' + text);
@@ -62,7 +71,7 @@ var jsonpfu = {},
 					callback = function () {};
 				}
 				
-				log("loading url " + url);
+				log("loading url...\n" + url);
 				
 				new_script.type = 'text/javascript';
 				new_script.src = url;
@@ -90,7 +99,7 @@ var jsonpfu = {},
 			
 			include_lib: function (lib, callback) {
 				this.include(path + '/lib/' + lib + ".js", function () {
-					log(lib + " library loaded");
+					info(lib + " library loaded");
 					callback();
 				}, lib);
 			},
