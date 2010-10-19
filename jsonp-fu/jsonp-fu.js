@@ -7,7 +7,7 @@ var jsonpfu = {},
 
 	// define mah vars
 	var	script, log,
-		error,
+		info, error,
 		path = '/',
 		libs = {},
 		lib_opts = {},
@@ -40,7 +40,7 @@ var jsonpfu = {},
 		} else {
 			console.info(text);
 		}
-	}
+	};
 	
 	error = function (text) {
 		console.error('JSONP-Fu: ' + text);
@@ -211,6 +211,8 @@ var jsonpfu = {},
 	};
 	
 	jsonpfu.manual_ready = function (lib, obj) {
+		var i;
+		
 		libs[lib] = obj;
 		
 		if (ready_callbacks[lib]) {
