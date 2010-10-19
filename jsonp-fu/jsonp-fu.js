@@ -55,8 +55,7 @@ var jsonpfu = {},
 			 * from the header later if we want *easily*
 			 */
 			include: function (url, callback, name) {
-				var new_script = document.createElement('script'),
-					i;
+				var new_script = document.createElement('script');
 				
 				if (typeof(callback) !== 'function') {
 					callback = function () {};
@@ -170,7 +169,7 @@ var jsonpfu = {},
 	 * 2: load('flickr', { opt: val });
 	 */
 	jsonpfu.load = function (opt1, opt2) {
-		var	lib,
+		var	lib, i,
 			load_lib = function (lib, opts) {
 				lib_opts[lib] = opts;
 				
