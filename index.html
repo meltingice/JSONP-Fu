@@ -15,7 +15,8 @@
 			github: {},
 			wordpress: {
 				blog_url: 'http://blog.meltingice.net'
-			}
+			},
+			twitter: {}
 		});
 		/*
 		jfu.ready('twitpic', function () {
@@ -40,6 +41,16 @@
 		jfu.ready('wordpress', function () {
 			this.posts.recent({count: 3}, function (data) {
 				console.log(data);
+			});
+		});
+		
+		jfu.ready('twitter', function () {
+			this.users.show({screen_name: 'meltingice'}, function (user) {
+				console.log(user);
+			});
+			
+			this.statuses.show({id: 27877534322}, function (status) {
+				console.log(status);
 			});
 		});
 	</script>
