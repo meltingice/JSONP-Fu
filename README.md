@@ -11,6 +11,18 @@ Oh and by the way, JSONP-Fu passes JSLint with these options:
 /*jslint white: true, browser: true, devel: true, fragment: true, onevar: true, undef: true, nomen: true, eqeqeq: true, bitwise: true, regexp: true, newcap: true, immed: true */
 </pre>
 
+<h1>Currently Supported APIs</h1>
+
+* Facebook
+* GitHub
+* Plixi
+* Reddit
+* Tumblr
+* TwitPic
+* Twitter
+* TypePad
+* Wordpress (for custom blogs with JSON-API plugin)
+
 <h1>Project To-Do</h1>
 
 * Write more plugins (and finish incomplete ones)!
