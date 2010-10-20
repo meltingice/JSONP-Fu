@@ -16,7 +16,8 @@
 			wordpress: {
 				blog_url: 'http://blog.meltingice.net'
 			},
-			twitter: {}
+			twitter: {},
+			plixi: {}
 		});
 		/*
 		jfu.ready('twitpic', function () {
@@ -30,7 +31,7 @@
 				console.log(resp);
 			});
 		});
-		*/
+		
 		
 		jfu.ready('github', function () {
 			this.repos.watched({user: 'meltingice'}, function (user) {
@@ -51,6 +52,12 @@
 			
 			this.statuses.show({id: 27877534322}, function (status) {
 				console.log(status);
+			});
+		});*/
+		
+		jfu.ready('plixi', function () {
+			this.user.show({user: 'meltingice'}, function (user) {
+				console.log(user);
 			});
 		});
 	</script>

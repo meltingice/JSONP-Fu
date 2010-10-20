@@ -143,7 +143,12 @@ var jsonpfu = {},
 				}
 				
 				options.url += query_string.substr(1);
-				options.url += '&callback=' + options.callback;
+				
+				if (query_string.length > 0) {
+					options.url += '&';
+				}
+				
+				options.url += 'callback=' + options.callback;
 				
 				/* 
 				 * Make JSONP call, then remove script from header once
