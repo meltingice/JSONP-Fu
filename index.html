@@ -7,6 +7,8 @@
 	<script type="text/javascript">
 		jfu.set_path('/jsonpfu/jsonp-fu/');
 		
+		// Normally, you probably wouldn't be loading all of these
+		// APIs for a single application.
 		jfu.load({
 			twitpic: {},
 			facebook: {
@@ -17,22 +19,23 @@
 				blog_url: 'http://blog.meltingice.net'
 			},
 			twitter: {},
-			plixi: {}
+			plixi: {},
+			reddit: {}
 		});
-		/*
+		
+		/*		
 		jfu.ready('twitpic', function () {
 			this.users.show({username: 'meltingice'}, function (user) {
 				console.log(user);
 			});
 		});
-		
+
 		jfu.ready('facebook', function () {
 			this.api('/rlefevre/feed', function (resp) {
 				console.log(resp);
 			});
 		});
-		
-		
+
 		jfu.ready('github', function () {
 			this.repos.watched({user: 'meltingice'}, function (user) {
 				console.log(user);
@@ -53,11 +56,41 @@
 			this.statuses.show({id: 27877534322}, function (status) {
 				console.log(status);
 			});
-		});*/
+		});
 		
 		jfu.ready('plixi', function () {
 			this.user.show({user: 'meltingice'}, function (user) {
 				console.log(user);
+			});
+		});
+		*/
+		jfu.ready('reddit', function () {
+			this.front_page.hot({}, function (data) {
+				console.log(data);
+			});
+			
+			this.url({url:'http://reddit.com/r/programming/comments/cxh3a/we_just_added_jsonp_to_reddits_json_api/'}, function (data) {
+				console.log(data);
+			});
+			
+			this.subreddit.hot({name:'programming'}, function (data) {
+				console.log(data);
+			});
+			
+			this.r('php').hot({}, function (data) {
+				console.log(data);
+			});
+			
+			this.user.overview({username:'meltingice'}, function (user) {
+				console.log(user);
+			});
+			
+			this.search({restrict: 'php', q: 'test'}, function (results) {
+				console.log(results);
+			});
+			
+			this.search({q: 'test'}, function (results) {
+				console.log(results);
 			});
 		});
 	</script>

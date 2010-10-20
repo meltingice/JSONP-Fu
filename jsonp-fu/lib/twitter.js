@@ -25,8 +25,10 @@ jsonpfu.extend('twitter', function (opts, script) {
 				matches = url.match(route);
 				if (matches.length > 0) {
 					for (i = 0; i < matches.length; i++) {
-						url = url.replace(matches[i], data[matches[i].substr(1)]);
-						delete data[matches[i].substr(1)];
+						if (data[matches[i].substr(1)]) {
+							url = url.replace(matches[i], data[matches[i].substr(1)]);
+							delete data[matches[i].substr(1)];
+						}
 					}
 				}
 			}

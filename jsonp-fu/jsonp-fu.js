@@ -71,8 +71,6 @@ var jsonpfu = {},
 					callback = function () {};
 				}
 				
-				log("loading url...\n" + url);
-				
 				new_script.type = 'text/javascript';
 				new_script.src = url;
 				new_script.onload = function () {
@@ -113,6 +111,7 @@ var jsonpfu = {},
 						url: '/',
 						data: {},
 						callback: "JSONPFuCallback" + new Date().getTime(),
+						callback_param: 'callback',
 						success: function (data) {}
 					}, i, query_string = '';
 				
@@ -148,7 +147,9 @@ var jsonpfu = {},
 					options.url += '&';
 				}
 				
-				options.url += 'callback=' + options.callback;
+				options.url += options.callback_param + '=' + options.callback;
+				
+				log('Query\n' + options.url);
 				
 				/* 
 				 * Make JSONP call, then remove script from header once

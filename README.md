@@ -58,4 +58,4 @@ jsonpfu.ready('my_api', function () {
 Obviously this API plugin is useless and boring, but you get the idea. Check out one of the existing plugins for more comprehensive info.
 
 <h1>I Want to Make a Plugin!</h1>
-Awesome, I'm glad you want to contribute!  The best way to do this would be to fork the project, add your plugin in the lib directory, then send a fork request. If the only change you made was adding your new plugin file, then merging your branch with the trunk should be super easy.
+Awesome, I'm glad you want to contribute!  The best way to do this would be to fork the project, add your plugin in the lib directory, then send a pull request. If the only change you made was adding your new plugin file, then merging your branch with the trunk should be super easy.
