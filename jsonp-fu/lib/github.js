@@ -89,14 +89,11 @@ jsonpfu.extend('github', function (opts, script) {
 			},
 			
 			show: function (args, callback) {
-				var result;
-
-				result = API.query('repos/show/:user/:repo', args, callback);
-				if (result) {
-					return;
-				}
-				
-				result = API.query('repos/show/:user', args, callback);
+				API.query('repos/show/:user/:repo', args, callback);
+			},
+			
+			user: function (args, callback) {
+				API.query('repos/show/:user', args, callback);
 			},
 			
 			collaborators: function (args, callback) {

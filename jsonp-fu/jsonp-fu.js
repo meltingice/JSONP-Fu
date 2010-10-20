@@ -8,11 +8,15 @@ var jsonpfu = {},
 	// define mah vars
 	var	script, log,
 		info, error,
-		path = '/',
+		path = window.location.pathname,
 		libs = {},
 		lib_opts = {},
 		exception,
 		ready_callbacks = {};
+		
+	if (path.substr(path.length - 1) === '/') {
+		path = path.substr(0, path.length - 1);
+	}
 	
 	/*
 	 * Make my life easier while debugging and
@@ -124,6 +128,10 @@ var jsonpfu = {},
 				}
 				
 				/* Register JSONP callback function */
+				while (options.callback in window) {
+					options.callback += Math.floor(Math.random() * 9999);
+				}
+				
 				if (!(options.callback in window)) {
 					window[options.callback] = function (jsonp_data) {
 						options.success(jsonp_data);

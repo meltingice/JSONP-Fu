@@ -108,9 +108,7 @@ jsonpfu.extend('wordpress', function (opts, script) {
 		
 		search: function (args, callback) {
 			API.query('get_search_results', args, callback);
-		},
-		
-		
+		}
 	};
 	
 });
