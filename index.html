@@ -20,22 +20,26 @@
 			},
 			twitter: {},
 			plixi: {},
-			reddit: {}
+			reddit: {},
+			tumblr: {
+				username: 'test'
+			}
 		});
 		
-		/*		
 		jfu.ready('twitpic', function () {
 			this.users.show({username: 'meltingice'}, function (user) {
 				console.log(user);
 			});
 		});
 
+		/*
 		jfu.ready('facebook', function () {
 			this.api('/rlefevre/feed', function (resp) {
 				console.log(resp);
 			});
 		});
-
+		*/
+		
 		jfu.ready('github', function () {
 			this.repos.watched({user: 'meltingice'}, function (user) {
 				console.log(user);
@@ -63,7 +67,7 @@
 				console.log(user);
 			});
 		});
-		*/
+		
 		jfu.ready('reddit', function () {
 			this.front_page.hot({}, function (data) {
 				console.log(data);
@@ -91,6 +95,12 @@
 			
 			this.search({q: 'test'}, function (results) {
 				console.log(results);
+			});
+		});
+		
+		jfu.ready('tumblr', function () {
+			this.posts.show({}, function (posts) {
+				console.log(posts);
 			});
 		});
 	</script>

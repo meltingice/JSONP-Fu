@@ -3,6 +3,8 @@ JSONP-Fu is a project inspired by the latest design of <a href="http://meltingic
 
 JSONP-Fu is a similar idea to oEmbed, but uses a different API and works a bit differently.  Instead of throwing a whole URL at an API endpoint, we simply call the API with our parameters and use the JSON data thats returned.
 
+Since all of the JSONP is managed by JSONP-Fu, it makes sure your header stays pretty and your DOM stays uncluttered.  All JSONP callback functions are removed after they are called and all script tags added to the header are also removed once their data is retrieved.
+
 Oh and by the way, JSONP-Fu passes JSLint with these options:
 
 <pre>
