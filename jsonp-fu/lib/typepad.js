@@ -1,13 +1,13 @@
 /*global jsonpfu */
 
 /**
- * Name: Plixi
- * Desc: Used to query the Plixi JSONP API (http://groups.google.com/group/plixi/web)
+ * Name: TypePad
+ * Desc: Used to query the TypePad JSONP API (http://www.typepad.com/services/apidocs)
  * Usage:
- *	jfu.lib('plixi').api_category.api_method(opts, callback);
+ *	jfu.lib('typepad').api_category.api_method(opts, callback);
  *
  * Example:
- *	jfu.lib('plixi').user.show({user: 'meltingice'}, function (data) {
+ *	jfu.lib('typepad').api_keys.show({id:'3d20424ed60e58e1'}, function (data) {
  *		console.log(data);
  *	});
  */
