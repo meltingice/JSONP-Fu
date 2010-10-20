@@ -1,13 +1,13 @@
 /*global jsonpfu */
 
 /**
- * Name: GitHub
- * Desc: Used to query the GitHub JSONP API (http://develop.github.com)
+ * Name: Twitter
+ * Desc: Used to query the Twitter JSONP API (http://dev.twitter.com)
  * Usage:
- *	jfu.lib('github').api_category.api_method(opts, callback);
+ *	jfu.lib('twitter').api_category.api_method(opts, callback);
  *
  * Example:
- *	jfu.lib('github').repos.watched({username: 'meltingice'}, function (data) {
+ *	jfu.lib('twitter').users.show({screen_name: 'meltingice'}, function (data) {
  *		console.log(data);
  *	});
  */
