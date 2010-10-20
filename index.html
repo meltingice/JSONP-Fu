@@ -23,22 +23,23 @@
 			reddit: {},
 			tumblr: {
 				username: 'test'
-			}
+			},
+			typepad: {}
 		});
-		
+/*		
 		jfu.ready('twitpic', function () {
 			this.users.show({username: 'meltingice'}, function (user) {
 				console.log(user);
 			});
 		});
 
-		/*
+
 		jfu.ready('facebook', function () {
 			this.api('/rlefevre/feed', function (resp) {
 				console.log(resp);
 			});
 		});
-		*/
+
 		
 		jfu.ready('github', function () {
 			this.repos.watched({user: 'meltingice'}, function (user) {
@@ -101,6 +102,16 @@
 		jfu.ready('tumblr', function () {
 			this.posts.show({}, function (posts) {
 				console.log(posts);
+			});
+		});
+*/
+		jfu.ready('typepad', function () {
+			this.api_keys.show({id:'3d20424ed60e58e1'}, function (data) {
+				console.log(data);
+			});
+			
+			this.users.relationships.following.by_group({id:'6p012877b13de7970c', group: '6p012877b14c77970c'}, function (data) {
+				console.log(data);
 			});
 		});
 	</script>
