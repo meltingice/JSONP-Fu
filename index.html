@@ -26,10 +26,11 @@
 			},
 			typepad: {},
 			flickr: {
-				api_key: '54a547642fde8a600075acafbfe00861'
+				api_key: '1234'
 			}
 		});
 		
+		/*
 		jfu.ready('flickr', function () {
 			var flickr = this;
 			this.people.getPublicPhotos({user_id: '45836197@N00', per_page: 15}, function (data) {
@@ -39,8 +40,8 @@
 				console.log(flickr.util.getPhotoUrl(data.photos.photo[0], 'm'));
 			});
 		});
+		*/
 		
-		/*
 		jfu.ready('twitpic', function () {
 			this.users.show({username: 'meltingice'}, function (user) {
 				console.log(user);
@@ -125,7 +126,7 @@
 			this.users.relationships.following.by_group({id:'6p012877b13de7970c', group: '6p012877b14c77970c'}, function (data) {
 				console.log(data);
 			});
-		});*/
+		});
 	</script>
 </head>
 <body>
