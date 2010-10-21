@@ -117,7 +117,7 @@ var jsonpfu = {},
 						callback: "JSONPFuCallback" + new Date().getTime(),
 						callback_param: 'callback',
 						success: function (data) {}
-					}, i, query_string = '';
+					}, i, query_string = '', that;
 				
 				for (i in options) {
 					if (options.hasOwnProperty(i)) {
@@ -128,6 +128,18 @@ var jsonpfu = {},
 				}
 				
 				/* Register JSONP callback function */
+				
+				// user specified custom callback name so we have to
+				// wait and keep trying over and over until we are clear
+				if (user_opts.callback && (options.callback in window)) {
+					that = this;
+					setTimeout(function () {
+						that.jsonp_query(user_opts);
+					}, 400);
+					
+					return;
+				}
+				
 				while (options.callback in window) {
 					options.callback += Math.floor(Math.random() * 9999);
 				}
