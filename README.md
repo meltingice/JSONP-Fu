@@ -14,6 +14,7 @@ Oh and by the way, JSONP-Fu passes JSLint with these options:
 <h1>Currently Supported APIs</h1>
 
 * Facebook
+* Flickr
 * GitHub
 * Plixi
 * Reddit
@@ -25,6 +26,7 @@ Oh and by the way, JSONP-Fu passes JSLint with these options:
 
 <h1>Project To-Do</h1>
 
+* Create documentation for each API
 * Write more plugins (and finish incomplete ones)!
 * Extensive bug testing (of course)
 * Update based on feedback
