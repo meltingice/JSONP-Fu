@@ -2,7 +2,8 @@
  * This is a Node.JS script that will automatically generate
  * a documentation template to make your life a lot easier.
  *
- * The way it works is, it loads the plugin and 
+ * The way it works is, it loads the plugin and eval's the plugin code,
+ * then looks at the API object returned and converts the object into XML.
  *
  * It will automatically check each JS file in the /lib directory
  * and create a documentation template for it *only if one doesn't exist yet*
