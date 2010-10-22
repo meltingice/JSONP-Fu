@@ -64,12 +64,13 @@
 						.attr('id', 'twitpic')
 						.addClass('api')
 						.html('<h2>TwitPic</h2>\n<div class="api-content center"></div>')
-						.appendTo('#content');
+						.appendTo('#content'),
+				twitpic = this;
 						
 			this.users.show({username: 'meltingice'}, function (user) {
 				$.each(user.images.slice(0, 9), function (i, image) {
 					$('<img />')
-						.attr('src', 'http://twitpic.com/show/mini/' + image.short_id)
+						.attr('src', twitpic.util.getPhotoUrl(image, 'mini'))
 						.appendTo(div.find('.api-content'));
 				});
 			});
