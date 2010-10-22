@@ -32,7 +32,7 @@ Oh and by the way, JSONP-Fu passes JSLint with these options:
 * Update based on feedback
 
 <h1>How to Use</h1>
-Until I get an official GitHub Page up, just check out index.html to see a really short and boring example.  More will be on the way.
+More information and examples can be found on the <a href="http://meltingice.github.com/JSONP-Fu/">official GitHub page for JSONP-Fu</a>.
 
 <h1>How to Extend</h1>
 Support for new JSONP APIs is added via a very simple to use interface.  Feel free to check out jsonp-fu/lib/twitpic.js to see a complete example.
