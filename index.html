@@ -243,7 +243,6 @@
 						.appendTo('#content');
 						
 			this.posts.show({username:'grooveshark'}, function (posts) {
-				console.log(posts);
 				$.each(posts, function (i, post) {
 					if (post.type === 'link') {
 						$("#tumblr-content").append(
