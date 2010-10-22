@@ -1,5 +1,5 @@
 <h1>About the Project</h1>
-JSONP-Fu is a project inspired by the latest design of <a href="http://meltingice.net">my own homepage</a> and the work I had to put into it in order to grab data from various JSONP API's.  The idea behind the project is simple: provide a unified and extendible interface that Javascript developers can use to easily query various JSONP API's efficiently and easily instead of having to waste time doing research and figuring out how each different API works.
+JSONP-Fu is a project inspired by the latest design of <a href="http://meltingice.net">my own homepage</a> and the work I had to put into it in order to grab data from various JSONP API's.  The idea behind the project is simple: <b>provide a unified and extendible interface that Javascript developers can use to easily query various JSONP API's efficiently and easily</b> instead of having to waste time doing research and figuring out how each different API works.
 
 JSONP-Fu is a similar idea to oEmbed, but uses a different API and works a bit differently.  Instead of throwing a whole URL at an API endpoint, we simply call the API with our parameters and use the JSON data thats returned.
 
