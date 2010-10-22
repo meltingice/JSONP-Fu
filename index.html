@@ -68,10 +68,16 @@
 				twitpic = this;
 						
 			this.users.show({username: 'meltingice'}, function (user) {
+				var a, img;
+				
 				$.each(user.images.slice(0, 9), function (i, image) {
-					$('<img />')
-						.attr('src', twitpic.util.getPhotoUrl(image, 'mini'))
-						.appendTo(div.find('.api-content'));
+					a = $("<a />")
+						.attr('href', 'http://twitpic.com/' + image.short_id)
+						.attr('target', '_blank');
+					img = $('<img />').attr('src', twitpic.util.getPhotoUrl(image, 'mini'));
+					
+					a.append(img);
+					a.appendTo(div.find('.api-content'));
 				});
 			});
 		});
