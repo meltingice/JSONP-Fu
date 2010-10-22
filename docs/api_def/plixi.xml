@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<category name="user">
+	<endpoint name="show"></endpoint>
+	<endpoint name="comments"></endpoint>
+	<endpoint name="friends"></endpoint>
+	<endpoint name="favorites"></endpoint>
+	<endpoint name="photos"></endpoint>
+	<category name="photo_iterator">
+		<endpoint name="next"></endpoint>
+		<endpoint name="previous"></endpoint>
+	</category>
+
+	<endpoint name="has_favorited"></endpoint>
+	<endpoint name="feed"></endpoint>
+</category>
+
+<category name="photo">
+	<endpoint name="show"></endpoint>
+	<endpoint name="comments"></endpoint>
+	<endpoint name="favorizers"></endpoint>
+	<endpoint name="tags"></endpoint>
+	<endpoint name="viewers"></endpoint>
+	<endpoint name="meta_from_url"></endpoint>
+</category>
+
+<category name="photos">
+	<category name="iterator">
+		<endpoint name="next"></endpoint>
+		<endpoint name="previous"></endpoint>
+	</category>
+
+	<endpoint name="by_location"></endpoint>
+	<endpoint name="by_venue"></endpoint>
+	<endpoint name="list"></endpoint>
+	<endpoint name="query_count"></endpoint>
+</category>
+
+<category name="leaderboard">
+	<endpoint name="viewed"></endpoint>
+	<endpoint name="commented"></endpoint>
+	<endpoint name="voted"></endpoint>
+</category>
+
+<endpoint name="socialfeed"></endpoint>

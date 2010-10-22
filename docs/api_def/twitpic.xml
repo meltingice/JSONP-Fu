@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<category name="media">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="users">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="comments">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="place">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="places">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="events">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="event">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="tags">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="util">
+	<endpoint name="getPhotoUrl"></endpoint>
+</category>

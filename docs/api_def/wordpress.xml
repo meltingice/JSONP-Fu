@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<category name="posts">
+	<endpoint name="recent"></endpoint>
+</category>
+
+<category name="post">
+	<endpoint name="show"></endpoint>
+</category>
+
+<category name="page">
+	<endpoint name="show"></endpoint>
+	<endpoint name="index"></endpoint>
+</category>
+
+<category name="date">
+	<endpoint name="posts"></endpoint>
+	<endpoint name="index"></endpoint>
+</category>
+
+<category name="category">
+	<endpoint name="posts"></endpoint>
+	<endpoint name="index"></endpoint>
+</category>
+
+<category name="tag">
+	<endpoint name="posts"></endpoint>
+	<endpoint name="index"></endpoint>
+</category>
+
+<category name="author">
+	<endpoint name="posts"></endpoint>
+	<endpoint name="index"></endpoint>
+</category>
+
+<endpoint name="search"></endpoint>
