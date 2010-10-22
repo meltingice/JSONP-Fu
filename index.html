@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JSONP-Fu</title>
+	
+	<!-- These stylesheets are for demo purposes only -->
+	<link type="text/css" rel="stylesheet" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="css/styles.css" />
+	
+	<!-- Please note, there is no jQuery dependency. It's only here for this demo page -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+	
+	<script type="text/javascript" src="http://github.com/meltingice/JSONP-Fu/raw/master/jsonp-fu.js"></script>
+	<script type="text/javascript">
+		jfu.set_path('http://github.com/meltingice/JSONP-Fu/raw/master/');
+		
+		// Normally, you probably wouldn't be loading all of these
+		// APIs for a single application.
+		jfu.load({
+			twitpic: {},
+			facebook: {
+				app_id: '123456789'
+			},
+			github: {},
+			wordpress: {
+				blog_url: 'http://blog.meltingice.net'
+			},
+			twitter: {},
+			plixi: {},
+			reddit: {},
+			tumblr: {
+				username: 'test'
+			},
+			typepad: {},
+			flickr: {
+				api_key: '61c94a690a89f2a877d9057514f3f27b'
+			}
+		});
+		
+		jfu.ready('flickr', function () {
+			var	flickr = this,
+				div;
+			
+			div = $("<div />")
+				.attr('id', 'flickr')
+				.addClass('api')
+				.html('<h2>Flickr</h2>\n<div class="api-content center"></div>')
+				.appendTo('#content');
+			
+			this.people.getPublicPhotos({user_id: '45836197@N00', per_page: 9}, function (data) {
+				$.each(data.photos.photo, function (i, pic) {
+					flickr.util.getPhotoUrl(pic, 's', function (url) {
+						$('<img />')
+							.attr('src', url)
+							.appendTo(div.find('.api-content'));
+					});
+				});
+			});
+		});
+		
+		jfu.ready('twitpic', function () {
+			var div = $("<div />")
+						.attr('id', 'twitpic')
+						.addClass('api')
+						.html('<h2>TwitPic</h2>\n<div class="api-content center"></div>')
+						.appendTo('#content');
+						
+			this.users.show({username: 'meltingice'}, function (user) {
+				$.each(user.images.slice(0, 9), function (i, image) {
+					$('<img />')
+						.attr('src', 'http://twitpic.com/show/mini/' + image.short_id)
+						.appendTo(div.find('.api-content'));
+				});
+			});
+		});
+
+		jfu.ready('facebook', function () {
+			var div = $("<div />")
+						.attr('id', 'facebook')
+						.addClass('api')
+						.html('<h2>Facebook</h2>\n<div class="api-content"><ul id="facebook-content"></ul></div>')
+						.appendTo('#content');
+						
+			this.api('/rlefevre/feed', function (resp) {
+				var HTML;
+				
+				$.each(resp.data.slice(0, 5), function (i, status) {
+			    	HTML = "";
+			    	if (status.type === 'status') {
+			    		HTML = 
+			    			"<li>" + 
+			    				"<p>" + status.message + "</p>" +
+			    				'<p class="meta">status updated ' + 
+			    				status.created_time.replace('T', ' ').replace('+0000', '');
+			    				
+			    		if(status.comments) {
+			    			HTML += ' with ' + status.comments.count + ' comment';
+			    			if(status.comments.count > 1) {
+			    				HTML += 's';
+			    			}
+			    		}
+			    		
+			    		HTML +=
+			    				'</p>' +
+			    			"</li>";
+			    	} else if (status.type === 'link') {
+			    		HTML =
+			    			"<li>" +
+			    				"<p><a href=\"" + status.link + "\">" + status.name + "</a></p>" +
+			    				'<p class="meta">link shared ' + 
+			    				status.created_time.replace('T', ' ').replace('+0000', '');
+			    				
+			    		if(status.comments) {
+			    			HTML += ' with ' + status.comments.count + ' comment';
+			    			if(status.comments.count > 1) {
+			    				HTML += 's';
+			    			}
+			    		}
+			    		
+			    		HTML +=
+			    				'</p>' +
+			    			"</li>";
+			    	}
+			    	
+			    	$("#facebook-content").append(HTML);
+				});
+			});
+		});
+		
+		
+		jfu.ready('github', function () {
+			var div = $("<div />")
+						.attr('id', 'github')
+						.addClass('api')
+						.html('<h2>GitHub</h2>\n<div class="api-content"><ul id="github-content"></ul></div>')
+						.appendTo('#content');
+						
+			this.repos.user({user: 'meltingice', sortBy: 'pushed_at'}, function (data) {
+				$.each(data.repositories.reverse().slice(0, 5), function (i, repo) {
+				    $("#github-content").append(
+				    	"<li>" + 
+				    		"<p><a target=\"_blank\" href=\"" + repo.url + "\">" + repo.name + "</a></p>" + 
+				    		'<p class="meta">' + repo.description + '</p>' +
+				    	"</li>"
+				    );
+				});
+			});
+		});
+		
+		jfu.ready('wordpress', function () {
+			var div = $("<div />")
+						.attr('id', 'wordpress')
+						.addClass('api')
+						.html('<h2>Wordpress</h2>\n<div class="api-content"><ul id="wordpress-content"></ul></div>')
+						.appendTo('#content');
+						
+			this.posts.recent({count: 5}, function (data) {
+				$.each(data.posts, function (i, post) {
+			    	$("#wordpress-content").append(
+			    		"<li>" + 
+			    			"<h3><a target=\"_blank\" href=\"" + post.url + "\">" + post.title + "</a></h3>" + 
+			    			'<p class="meta">' + post.excerpt + '</p>' +
+			    		"</li>"
+			    	);
+				});
+			});
+		});
+		
+		jfu.ready('twitter', function () {
+			var div = $("<div />")
+						.attr('id', 'Twitter')
+						.addClass('api')
+						.html('<h2>Twitter</h2>\n<div class="api-content"><ul id="twitter-content"></ul></div>')
+						.appendTo('#content'),
+				username = 'meltingice',
+				url_regex	= /(http\:\/\/([a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3})(\/\S*)?)/,
+				hash_regex	= /#([A-Za-z0-9_]+)/;
+						
+			this.statuses.user_timeline({screen_name: 'meltingice'}, function (data) {
+				$.each(data.slice(0, 5), function (i, tweet) {
+				    tweet.text = tweet.text.replace(url_regex, "<a target=\"_blank\" href=\"$1\">$1</a>");
+				    tweet.text = tweet.text.replace(hash_regex, "<a target=\"_blank\" href=\"http://twitter.com/#search/%23$1\">#$1</a>");
+				    
+				    $("#twitter-content").append(
+				    	"<li>" + 
+				    	"<p>" + tweet.text + "</p>" +
+				    	'<p class="meta">' + 
+				    	'<a target="_blank" href="http://twitter.com/' + username + '/status/' + tweet.id + '">' + tweet.created_at + '</a>' +
+				    	' via ' + tweet.source +
+				    	'</p>' +
+				    	"</li>"
+				    );
+				});
+			});
+		});
+		
+		jfu.ready('plixi', function () {
+			var div = $("<div />")
+						.attr('id', 'plixi')
+						.addClass('api')
+						.html('<h2>Plixi</h2>\n<div class="api-content center"></div>')
+						.appendTo('#content');
+						
+			this.user.photos({id: 3293489}, function (data) {
+				$.each(data.List.slice(0, 8), function (i, image) {
+					$('<img />')
+						.attr('src', image.ThumbnailUrl)
+						.appendTo(div.find('.api-content'));
+				});
+			});
+		});
+		
+		jfu.ready('reddit', function () {
+			var div = $("<div />")
+						.attr('id', 'reddit')
+						.addClass('api')
+						.html('<h2>Reddit</h2>\n<div class="api-content"><ul id="reddit-content"></ul></div>')
+						.appendTo('#content');
+						
+			this.front_page.hot({}, function (data) {
+				$.each(data.data.children.slice(0, 5), function (i, post) {
+					$("#reddit-content").append(
+				    	"<li>" + 
+				    	"<p><a href=\"" + post.data.url + "\">" + post.data.title + "</a></p>" +
+				    	'<p class="meta">' + 
+				    	post.data.ups + ' ups, ' + post.data.downs + ' downs, ' + post.data.num_comments + ' comments - ' +
+				    	'submitted <a href="http://reddit.com' + post.data.permalink + '">' + date.relative_time(post.data.created_utc) + '</a>' + 
+				    	" by " + post.data.author + " to " + post.data.subreddit +
+				    	'</p>' +
+				    	"</li>"
+				    );
+				});
+			});
+		});
+		
+		jfu.ready('tumblr', function () {
+			var div = $("<div />")
+						.attr('id', 'tumblr')
+						.addClass('api')
+						.html('<h2>Tumblr</h2>\n<div class="api-content"><ul id="tumblr-content"></ul></div>')
+						.appendTo('#content');
+						
+			this.posts.show({username:'grooveshark'}, function (posts) {
+				console.log(posts);
+				$.each(posts, function (i, post) {
+					if (post.type === 'link') {
+						$("#tumblr-content").append(
+					    	"<li>" + 
+					    	"<p><a href=\"" + post['link-url'] + "\">" + post['link-text'] + "</a></p>" +
+					    	post['link-description'] + 
+					    	"</li>"
+					    );
+					} else if (post.type === 'regular') {
+						$("#tumblr-content").append(
+					    	"<li>" + 
+					    	"<p><a href=\"" + post['url'] + "\">" + post['regular-title'] + "</a></p>" +
+					    	'<p class="meta">posted ' + post.date + "</p>" +
+					    	"</li>"
+					    );
+					}
+				});
+			});
+		});
+		
+		jfu.ready('typepad', function () {
+			var div = $("<div />")
+						.attr('id', 'typepad')
+						.addClass('api')
+						.html('<h2>TypePad</h2>\n<div class="api-content"><ul id="typepad-content"></ul></div>')
+						.appendTo('#content');
+						
+			this.blogs.post_assets.show({id:'6a012877b13de7970c012877b13df1970c'}, function (posts) {
+				$.each(posts.entries, function (i, post) {
+					$("#typepad-content").append(
+					    "<li>" + 
+					    "<p><a href=\"" + post.permalinkUrl + "\">" + post.title + "</a></p>" +
+					    '<p class="meta">posted ' + date.relative_time(post.published.replace('T', ' ').replace('Z', '')) + "</p>" +
+					    "</li>"
+					);
+				});
+			});
+		});
+
+	</script>
+</head>
+<body>
+<div id="info">
+	<h1>JSONP-Fu!</h1>
+	<p>All of this content is pulled from 3rd party APIs. Check out the page source to see how!</p>
+</div>
+
+<div id="content">
+
+</div>
+</body>
+</html>
