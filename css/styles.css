@@ -16,6 +16,7 @@ p {
     color: #333333;
     font-weight: 300;
     letter-spacing: 0.2px;
+    line-height: 1.3em;
 }
 
 a {
@@ -48,6 +49,7 @@ img { border: none; }
 	-moz-text-shadow: 1px 1px 2px #111111;
 	-webkit-text-shadow: 1px 1px 2px #111111;
 	text-shadow: 1px 1px 2px #111111;
+	margin-bottom: 10px;
 }
 
 .api {
