@@ -51,7 +51,7 @@ jsonpfu = {
 			return;
 		}
 		
-		md += "<h1>" + file + " API Reference<h1>\n";
+		md += "<h1>" + file + " API Reference</h1>\n";
 		md += "Documentation generated: " + date('F j, Y g:ia') + "\n";
 		md += OBJtoMarkdown(libs[file]);
 		
@@ -112,7 +112,7 @@ jsonpfu = {
 		d = (d) ? d : 0;
 		var rString = "\n";
 		var pad = "";
-		for (var i = 0; i < d; i++) {
+		for (var i = 1; i < d; i++) {
 			pad += "\t";
 		}
 		if (typeof obj === "object") {

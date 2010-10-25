@@ -1,148 +1,148 @@
-<h1>flickr API Reference<h1>
-Documentation generated: October 25, 2010 2:35am
+<h1>flickr API Reference</h1>
+Documentation generated: October 25, 2010 2:42am
 
 <h2>blogs</h2>
 
-	* getServices
+* getServices
 
 <h2>collections</h2>
 
-	* getTree
+* getTree
 
 <h2>commons</h2>
 
-	* getInstitutions
+* getInstitutions
 
 <h2>contacts</h2>
 
-	* getPublicList
+* getPublicList
 
 <h2>favorites</h2>
 
-	* getPublicList
+* getPublicList
 
 <h2>galleries</h2>
 
-	* getInfo
-	* getList
-	* getListForPhoto
-	* getPhotos
+* getInfo
+* getList
+* getListForPhoto
+* getPhotos
 
 <h2>groups</h2>
 
-	* getInfo
-	* search
+* getInfo
+* search
 
-	<h3>pools</h3>
+<h3>pools</h3>
 
-		* getContext
-		* getPhotos
+	* getContext
+	* getPhotos
 
 <h2>interestingness</h2>
 
-	* getList
+* getList
 
 <h2>machinetags</h2>
 
-	* getNamespaces
-	* getPairs
-	* getPredicates
-	* getRecentValues
-	* getValues
+* getNamespaces
+* getPairs
+* getPredicates
+* getRecentValues
+* getValues
 
 <h2>panda</h2>
 
-	* getList
-	* getPhotos
+* getList
+* getPhotos
 
 <h2>people</h2>
 
-	* findByEmail
-	* findByUsername
-	* getInfo
-	* getPhotosOf
-	* getPublicGroups
-	* getPublicPhotos
+* findByEmail
+* findByUsername
+* getInfo
+* getPhotosOf
+* getPublicGroups
+* getPublicPhotos
 
 <h2>photos</h2>
 
-	* getAllContexts
-	* getContactsPublicPhotos
-	* getContext
-	* getExif
-	* getFavorites
+* getAllContexts
+* getContactsPublicPhotos
+* getContext
+* getExif
+* getFavorites
+* getInfo
+* getRecent
+* getSizes
+* search
+
+<h3>comments</h3>
+
+	* getList
+
+<h3>get</h3>
+
+	* getLocation
+
+<h3>licenses</h3>
+
 	* getInfo
-	* getRecent
-	* getSizes
-	* search
 
-	<h3>comments</h3>
+<h3>people</h3>
 
-		* getList
-
-	<h3>get</h3>
-
-		* getLocation
-
-	<h3>licenses</h3>
-
-		* getInfo
-
-	<h3>people</h3>
-
-		* getList
+	* getList
 
 <h2>photosets</h2>
 
-	* getContext
-	* getInfo
+* getContext
+* getInfo
+* getList
+* getPhotos
+
+<h3>comments</h3>
+
 	* getList
-	* getPhotos
-
-	<h3>comments</h3>
-
-		* getList
 
 <h2>places</h2>
 
-	* find
-	* findByLatLon
-	* getChildrenWithPhotosPublic
-	* getInfo
-	* getInfoByUrl
-	* getPlaceTypes
-	* getShapeHistory
-	* getTopPlacesList
-	* placesForBoundingBox
-	* placesForTags
-	* resolvePlaceId
-	* tagsForPlace
+* find
+* findByLatLon
+* getChildrenWithPhotosPublic
+* getInfo
+* getInfoByUrl
+* getPlaceTypes
+* getShapeHistory
+* getTopPlacesList
+* placesForBoundingBox
+* placesForTags
+* resolvePlaceId
+* tagsForPlace
 
 <h2>reflection</h2>
 
-	* getMethodInfo
-	* getMethods
+* getMethodInfo
+* getMethods
 
 <h2>tags</h2>
 
-	* getClusterPhotos
-	* getClusters
-	* getHotList
-	* getListPhoto
-	* getListUser
-	* getListUserPopular
-	* getListUserRaw
-	* getRelated
+* getClusterPhotos
+* getClusters
+* getHotList
+* getListPhoto
+* getListUser
+* getListUserPopular
+* getListUserRaw
+* getRelated
 
 <h2>urls</h2>
 
-	* getGroup
-	* getUserPhotos
-	* getUserProfile
-	* lookupGallery
-	* lookupGroup
-	* lookupUser
+* getGroup
+* getUserPhotos
+* getUserProfile
+* lookupGallery
+* lookupGroup
+* lookupUser
 
 <h2>util</h2>
 
-	* getPhotoUrl
+* getPhotoUrl
