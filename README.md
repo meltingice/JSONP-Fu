@@ -23,6 +23,7 @@ Oh and by the way, JSONP-Fu passes JSLint with these options:
 * Twitter
 * TypePad
 * Wordpress (for custom blogs with JSON-API plugin)
+* Yahoo Query Language  (YQL)
 
 <h1>Project To-Do</h1>
 
