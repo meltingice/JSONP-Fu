@@ -11,9 +11,9 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 	<script type="text/javascript" src="js/util.js"></script>
 	
-	<script type="text/javascript" src="http://github.com/meltingice/JSONP-Fu/raw/master/jsonp-fu.js"></script>
+	<script type="text/javascript" src="jsonp-fu.js"></script>
 	<script type="text/javascript">
-		jfu.set_path('http://github.com/meltingice/JSONP-Fu/raw/master/');
+		jfu.set_path('');
 		
 		// Normally, you probably wouldn't be loading all of these
 		// APIs for a single application.
@@ -35,7 +35,8 @@
 			typepad: {},
 			flickr: {
 				api_key: '61c94a690a89f2a877d9057514f3f27b'
-			}
+			},
+			yql: {}
 		});
 		
 		jfu.ready('flickr', function () {
@@ -288,6 +289,29 @@
 			});
 		});
 
+		jfu.ready('yql', function () {
+			var div = $("<div />")
+						.attr('id', 'yql')
+						.addClass('api')
+						.html('<h2>YQL</h2>\n<div class="api-content center"><div id="yql-content"></div></div>')
+						.appendTo('#content'),
+				yql = this,
+				flickr = jfu.lib('flickr');
+						
+			this.select('*')
+				.from('flickr.photos.recent')
+				.limit(9)
+				.sort('created')
+				.query(function (data) {
+					$.each(data.results().photo, function (i, pic) {
+						flickr.util.getPhotoUrl(pic, 's', function (url) {
+							$('<img />')
+								.attr('src', url)
+								.appendTo(div.find('.api-content'));
+						});
+					});
+				});
+		});
 	</script>
 </head>
 <body>
