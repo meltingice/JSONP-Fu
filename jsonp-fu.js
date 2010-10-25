@@ -14,8 +14,8 @@ var jsonpfu = {},
 		exception,
 		ready_callbacks = {};
 		
-	if (path.substr(path.length - 1) === '/') {
-		path = path.substr(0, path.length - 1);
+	if (path.substr(path.length - 1) !== '/' && path !== '') {
+		path += '/';
 	}
 	
 	/*
@@ -100,7 +100,7 @@ var jsonpfu = {},
 			},
 			
 			include_lib: function (lib, callback) {
-				this.include(path + '/lib/' + lib + ".js", function () {
+				this.include(path + 'lib/' + lib + ".js", function () {
 					info(lib + " library loaded");
 					callback();
 				}, lib);
@@ -157,7 +157,7 @@ var jsonpfu = {},
 				
 				for (i in options.data) {
 					if (options.data.hasOwnProperty(i)) {
-						query_string += '&' + i + '=' + options.data[i];
+						query_string += '&' + encodeURIComponent(i) + '=' + encodeURIComponent(options.data[i]);
 					}
 				}
 				
@@ -192,8 +192,8 @@ var jsonpfu = {},
 	jsonpfu.set_path = function (new_path) {
 
 		// Remove trailing slash if present
-		if (new_path.substr(new_path.length - 1) === '/') {
-			new_path = new_path.substr(0, new_path.length - 1);
+		if (new_path.substr(new_path.length - 1) !== '/' && new_path !== '') {
+			new_path += '/';
 		}
 		
 		path = new_path;
