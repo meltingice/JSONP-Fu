@@ -16,6 +16,7 @@ Oh and by the way, JSONP-Fu passes JSLint with these options:
 * Facebook
 * Flickr
 * GitHub
+* Last.fm
 * Plixi
 * Reddit
 * Tumblr
